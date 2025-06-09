@@ -1,0 +1,106 @@
+body {
+    font-family: 'Orbitron', sans-serif;
+    background: linear-gradient(135deg, #000428, #004e92);
+    color: #ffffff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 700px;
+    margin: 60px auto;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+h1 {
+    font-size: 40px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+input[type="file"] {
+    padding: 12px;
+    background: white;
+    border-radius: 8px;
+    color: black;
+    margin-top: 15px;
+    border: none;
+    font-size: 18px;
+}
+
+button {
+    background: #ff6600;
+    color: white;
+    padding: 14px 22px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.4s;
+    margin-top: 12px;
+    box-shadow: 0px 5px 15px rgba(255, 102, 0, 0.5);
+}
+
+button:hover {
+    background: #ff3300;
+}
+
+.analyze-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 14px 22px;
+    background: #33ffcc;
+    color: black;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.4s;
+    box-shadow: 0px 5px 15px rgba(51, 255, 204, 0.5);
+}
+
+.analyze-btn:hover {
+    background: #00cc99;
+}
+
+.video-container {
+    margin-top: 30px;
+}
+
+video {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.messages {
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.success {
+    color: #00ff99;
+    font-weight: bold;
+    text-shadow: 0px 0px 10px rgba(0, 255, 153, 0.8);
+}
+
+.error {
+    color: #ff3333;
+    font-weight: bold;
+    text-shadow: 0px 0px 10px rgba(255, 51, 51, 0.8);
+}
+
+.info {
+    color: #ffcc00;
+    font-weight: bold;
+    text-shadow: 0px 0px 10px rgba(255, 204, 0, 0.8);
+}

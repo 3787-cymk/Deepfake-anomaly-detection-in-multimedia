@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepFake Detection</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/upload.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Deepfake Media Detector</h1>
+        <p>Upload a video or image to detect if it's real or fake</p>
+        <form action="/" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" accept="video/*,image/*" required>
+            <button type="submit">Upload</button>
+        </form>
+
+        {% if filename %}
+        <div class="media-container">
+            <h2>Uploaded Media</h2>
+            {% if filename.endswith(('mp4', 'avi', 'mov', 'mkv')) %}
+            <video width="500" controls>
+                <source src="{{ url_for('display_video', filename=filename) }}" type="video/{{ filename.split('.')[-1] }}">
+                Your browser does not support the video tag.
+            </video>
+            {% else %}
+            <img src="{{ url_for('display_video', filename=filename) }}" alt="Uploaded image" style="max-width: 500px;">
+            {% endif %}
+            <br>
+            <a href="{{ url_for('sequence_prediction', filename=filename) }}" class="analyze-btn">Analyze Media</a>
+        </div>
+        {% endif %}
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="messages">
+                {% for category, message in messages %}
+                    <p class="{{ category }}">{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>
