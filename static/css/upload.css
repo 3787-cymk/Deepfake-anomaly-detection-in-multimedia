@@ -1,0 +1,254 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+    background: radial-gradient(circle at 0% 0%, #1d4ed8 0, #020617 55%);
+    color: #0f172a;
+}
+
+.app-shell {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 32px 16px 40px;
+}
+
+.app-header {
+    margin-bottom: 18px;
+}
+
+.app-header h1 {
+    margin: 0 0 6px;
+    font-size: 28px;
+    font-weight: 650;
+    color: #f9fafb;
+}
+
+.app-header p {
+    margin: 0;
+    font-size: 14px;
+    color: #e5e7eb;
+    max-width: 520px;
+}
+
+.app-main {
+    background: #f9fafb;
+    border-radius: 16px;
+    box-shadow: 0 20px 45px rgba(15, 23, 42, 0.55);
+    padding: 20px 18px 18px;
+}
+
+.columns {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.25fr);
+    gap: 16px;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    padding: 14px 14px 13px;
+}
+
+.card h2 {
+    margin: 0 0 4px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.card-upload .hint {
+    margin: 0 0 14px;
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.upload-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.file-input {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+    cursor: pointer;
+    font-size: 13px;
+    color: #374151;
+}
+
+.file-input input[type="file"] {
+    border: none;
+    font-size: 12px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-primary {
+    align-self: flex-start;
+    background: #2563eb;
+    color: #ffffff;
+    border-color: #2563eb;
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.25);
+}
+
+.btn-primary:hover {
+    background: #1d4ed8;
+    border-color: #1d4ed8;
+}
+
+.btn-secondary {
+    margin-top: 10px;
+    background: #ffffff;
+    color: #111827;
+    border-color: #d1d5db;
+}
+
+.btn-secondary:hover {
+    background: #f3f4f6;
+}
+
+.alert-group {
+    margin-top: 10px;
+    padding: 8px 9px;
+    border-radius: 8px;
+    background: #f3f4f6;
+}
+
+.alert {
+    margin: 0;
+    font-size: 12px;
+}
+
+.alert.success {
+    color: #166534;
+}
+
+.alert.error {
+    color: #b91c1c;
+}
+
+.alert.info {
+    color: #92400e;
+}
+
+.card-preview .file-name {
+    margin: 2px 0 8px;
+    font-size: 12px;
+    color: #4b5563;
+}
+
+.media-preview {
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    overflow: hidden;
+    margin-bottom: 8px;
+    background: #0f172a;
+}
+
+.media-preview video,
+.media-preview img {
+    width: 100%;
+    display: block;
+}
+
+.placeholder {
+    margin-top: 4px;
+    padding: 10px 10px 9px;
+    border-radius: 10px;
+    border: 1px dashed #d1d5db;
+    background: #f9fafb;
+}
+
+.placeholder p {
+    margin: 0;
+    font-size: 13px;
+}
+
+.placeholder-hint {
+    margin-top: 4px !important;
+    font-size: 11px !important;
+    color: #6b7280;
+}
+
+.result {
+    margin-top: 10px;
+    padding: 9px 10px 8px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    background: #f9fafb;
+}
+
+.result-heading {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #4b5563;
+    margin-bottom: 4px;
+}
+
+.result-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 3px;
+}
+
+.result-note {
+    margin: 0;
+    font-size: 11px;
+    color: #6b7280;
+}
+
+.result-fake {
+    border-color: #fca5a5;
+    background: #fef2f2;
+}
+
+.result-real {
+    border-color: #6ee7b7;
+    background: #ecfdf5;
+}
+
+.result-likely-fake {
+    border-color: #facc15;
+    background: #fffbeb;
+}
+
+.result-likely-real {
+    border-color: #93c5fd;
+    background: #eff6ff;
+}
+
+@media (max-width: 820px) {
+    .app-shell {
+        padding-top: 20px;
+    }
+
+    .app-main {
+        padding: 16px 14px 14px;
+    }
+
+    .columns {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}

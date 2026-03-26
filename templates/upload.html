@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepfake Detector</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/upload.css') }}">
+</head>
+<body>
+    <div class="app-shell">
+        <header class="app-header">
+            <div class="title-block">
+                <h1>Deepfake Detector</h1>
+                <p>Upload an image or short video and get a confidence score for whether it appears real or manipulated.</p>
+            </div>
+        </header>
+
+        <main class="app-main">
+            <section class="columns">
+                <div class="card card-upload">
+                    <h2>Upload media</h2>
+                    <p class="hint">Formats: mp4, avi, mov, mkv, jpg, jpeg, png, webp</p>
+
+                    <form class="upload-form" action="/" method="POST" enctype="multipart/form-data">
+                        <label class="file-input">
+                            <span class="file-label">Choose file…</span>
+                            <input type="file" name="file" accept="video/*,image/*" required>
+                        </label>
+                        <button type="submit" class="btn btn-primary">Upload</button>
+                    </form>
+
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        <div class="alert-group">
+                            {% for category, message in messages %}
+                                <p class="alert {{ category }}">{{ message }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    {% endwith %}
+                </div>
+
+                <div class="card card-preview">
+                    <h2>Preview & analysis</h2>
+
+                    {% if filename %}
+                        <p class="file-name">Selected file: <strong>{{ filename }}</strong></p>
+                        <div class="media-preview">
+                            {% if filename.endswith(('mp4', 'avi', 'mov', 'mkv')) %}
+                                <video controls>
+                                    <source src="{{ url_for('display_video', filename=filename) }}" type="video/{{ filename.split('.')[-1] }}">
+                                    Your browser does not support the video tag.
+                                </video>
+                            {% else %}
+                                <img src="{{ url_for('display_video', filename=filename) }}" alt="Uploaded image">
+                            {% endif %}
+                        </div>
+
+                        <a href="{{ url_for('sequence_prediction', filename=filename) }}" class="btn btn-secondary analyze-link">
+                            Run deepfake analysis
+                        </a>
+                    {% else %}
+                        <div class="placeholder">
+                            <p>No media uploaded yet.</p>
+                            <p class="placeholder-hint">Upload a file on the left to see the preview and analysis here.</p>
+                        </div>
+                    {% endif %}
+
+                    {% if prediction %}
+                        {% set label = prediction.split('(')[0].strip() %}
+                        <div class="result result-{{ label.replace(' ', '-').lower() }}">
+                            <div class="result-heading">{{ label }}</div>
+                            <div class="result-text">{{ prediction }}</div>
+                            <p class="result-note">This score comes from a lightweight heuristic model calibrated on your demo data.</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
