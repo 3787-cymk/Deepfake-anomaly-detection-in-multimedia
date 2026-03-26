@@ -1,2 +1,5 @@
 static/uploads/
 *.mp4
+venv/
+static/uploads/
+*.mp4
